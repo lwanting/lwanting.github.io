@@ -1,6 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>移动端布局02-Flex布局</title>
+    <url>/2021/04/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%83%E5%B1%80/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%83%E5%B1%8002-Flex%E5%B8%83%E5%B1%80/</url>
+    <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="与传统布局对比"><a href="#与传统布局对比" class="headerlink" title="与传统布局对比"></a>与传统布局对比</h3><p>传统布局：兼容性好、布局繁琐、有局限性(移动端表现不好)。</p>
+<p>flex弹性布局：操作方便、布局简单、对PC端浏览器支持较差。</p>
+<a id="more"></a>
+
+<h3 id="布局原理"><a href="#布局原理" class="headerlink" title="布局原理"></a>布局原理</h3><p><img src="https://s1.ax1x.com/2020/07/21/UI7tdf.png" alt=""></p>
+<p>Flex (Flexible Box)弹性布局，用来为盒模型提供最大的灵活性，任何一个容器都可以指定为Flex 布局。为父盒子设定Flex 布局后，子元素的<code>float</code>、<code>clear</code>、<code>vertical-align</code>属性都将失效。</p>
+<p>采用Flex布局的元素，称为Flex 容器 (flex container)，简称“容器”。它所有的子元素自动称为容器成员，称为Flex 项目(flex item)，简称“项目”</p>
+<p>总结：flex布局就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式。</p>
+<h2 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h2><h3 id="flex-direction属性"><a href="#flex-direction属性" class="headerlink" title="flex-direction属性"></a>flex-direction属性</h3><p><code>flex-direction</code>属性决定主轴的方向（即项目的排列方向）。</p>
+<p>注意： 主轴和侧轴是会发生改变的，<code>flex-direction</code>设置谁为主轴，剩下的就是侧轴，子元素跟随主轴排列。</p>
+<ul>
+<li><code>row</code>（默认值）：主轴为水平方向，起点在左端。</li>
+<li><code>row-reverse</code>：主轴为水平方向，起点在右端。</li>
+<li><code>column</code>：主轴为垂直方向，起点在上沿。</li>
+<li><code>column-reverse</code>：主轴为垂直方向，起点在下沿。</li>
+</ul>
+<h3 id="justify-content属性"><a href="#justify-content属性" class="headerlink" title="justify-content属性"></a>justify-content属性</h3><p><code>justify-content</code>属性定义了项目在主轴上的对齐方式。使用之前需要先确定好主轴。</p>
+<ul>
+<li><code>flex-start</code>（默认值）：从头部开始排列，若主轴是水平方向，则为左对齐。</li>
+<li><code>flex-end</code>：从尾部开始排列，若主轴是水平方向，则为右对齐。</li>
+<li><code>center</code>： 居中。</li>
+<li><code>space-around</code>：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li>
+<li><code>space-between</code>：两端对齐，项目之间的间隔都相等。</li>
+</ul>
+<h3 id="flex-wrap属性"><a href="#flex-wrap属性" class="headerlink" title="flex-wrap属性"></a>flex-wrap属性</h3><p>默认情况下，项目都排在一条线（又称”轴线”）上。<code>flex-wrap</code>属性定义了如果一条轴线排不下，如何换行。</p>
+<ul>
+<li><code>nowrap</code>（默认值）：不换行，容器宽度不够时，会缩小项目宽度。</li>
+<li><code>wrap</code>：换行，第一行在上方。</li>
+<li><code>wrap-reverse</code>：换行，第一行在下方。</li>
+</ul>
+<h3 id="align-items属性"><a href="#align-items属性" class="headerlink" title="align-items属性"></a>align-items属性</h3><p><code>align-items</code>属性定义项目在侧轴上如何对齐。在项目为单项（单行）是使用。</p>
+<ul>
+<li><code>flex-start</code>：侧轴的起点对齐。</li>
+<li><code>flex-end</code>：侧轴的终点对齐。</li>
+<li><code>center</code>：侧轴的中点对齐（居中）。</li>
+<li><code>baseline</code>: 项目的第一行文字的基线对齐。</li>
+<li><code>stretch</code>（默认值）：拉伸，如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
+</ul>
+<h3 id="align-content属性"><a href="#align-content属性" class="headerlink" title="align-content属性"></a>align-content属性</h3><p><code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+<ul>
+<li><code>flex-start</code>：与侧轴的起点对齐。</li>
+<li><code>flex-end</code>：与侧轴的终点对齐。</li>
+<li><code>center</code>：与侧轴的中点对齐。</li>
+<li><code>space-between</code>：与侧轴两端对齐，轴线之间的间隔平均分布。</li>
+<li><code>space-around</code>：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
+<li><code>stretch</code>（默认值）：轴线占满整个交叉轴。</li>
+</ul>
+<blockquote>
+<p><code>align-items</code>与<code>align-content</code>区别：<br><code>align-items</code>适用于单行情况下，只有上对齐、下对齐、居中和拉伸属性。<br><code>align-content</code>适用于多行(换行)的情况下，有上对齐、下对齐、居中、拉伸以及平均分配剩余空间等属性值。</p>
+</blockquote>
+<h3 id="flex-flow属性"><a href="#flex-flow属性" class="headerlink" title="flex-flow属性"></a>flex-flow属性</h3><p><code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code>。</p>
+<h2 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h2><h3 id="flex属性"><a href="#flex属性" class="headerlink" title="flex属性"></a>flex属性</h3><p>flex属性定义项目分配剩余空间，用flex表示占几份，默认值为0。</p>
+<h3 id="align-self属性"><a href="#align-self属性" class="headerlink" title="align-self属性"></a>align-self属性</h3><p><code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于<code>stretch</code>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">属性值：auto | flex-start | flex-end | center | baseline | stretch;</span><br></pre></td></tr></table></figure>
+
+<h3 id="order属性"><a href="#order属性" class="headerlink" title="order属性"></a>order属性</h3><p><code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+        <tag>CSS</tag>
+        <tag>移动端布局</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VSCode Git History插件</title>
     <url>/2020/12/06/VScode-Git-History%E6%8F%92%E4%BB%B6/</url>
     <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Git History插件可以直观的查看相关文件的提交历史。</p>
@@ -213,7 +282,7 @@
 <p>参考资料：<a href="https://www.jianshu.com/p/d8bd75c0fb1b" target="_blank" rel="noopener">https://www.jianshu.com/p/d8bd75c0fb1b</a></p>
 ]]></content>
       <categories>
-        <category>服务器软件</category>
+        <category>服务器</category>
       </categories>
       <tags>
         <tag>Nginx</tag>
@@ -1600,7 +1669,7 @@
 <p>打开github设置，setting =&gt; email =&gt; 取消勾选<code>Keep my email addresses private</code></p>
 ]]></content>
       <categories>
-        <category>博客</category>
+        <category>博客搭建</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
@@ -2464,7 +2533,7 @@
 <p>部署成功！</p>
 ]]></content>
       <categories>
-        <category>博客</category>
+        <category>博客搭建</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
@@ -3121,7 +3190,7 @@
 <p>参考文章：<a href="https://blog.csdn.net/linton1/article/details/90141555" target="_blank" rel="noopener">https://blog.csdn.net/linton1/article/details/90141555</a></p>
 ]]></content>
       <categories>
-        <category>博客</category>
+        <category>博客搭建</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
@@ -3500,7 +3569,7 @@
 
 ]]></content>
       <categories>
-        <category>博客</category>
+        <category>博客搭建</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
